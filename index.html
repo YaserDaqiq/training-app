@@ -3,10 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Training App</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Training App läuft 🔥</h1>
-    <p>Wenn du das siehst, ist Schritt 1 geschafft.</p>
+    <header class="app-header">
+      <p class="label">MILITÄR TRAINING PLAN</p>
+      <h1>Push · Pull · Legs</h1>
+      <p class="subtitle">59kg → stärker, breiter, disziplinierter 🔥</p>
+    </header>
+
+    <main class="app">
+      <section class="tip-box" id="tipBox">Tipp wird geladen...</section>
+
+      <nav class="tabs">
+        <button class="tab active" data-day="0">
+          <span>Tag 1</span>
+          <small id="count-0">0/0</small>
+        </button>
+
+        <button class="tab" data-day="1">
+          <span>Tag 2</span>
+          <small id="count-1">0/0</small>
+        </button>
+
+        <button class="tab" data-day="2">
+          <span>Tag 3</span>
+          <small id="count-2">0/0</small>
+        </button>
+      </nav>
+
+      <section class="day-head">
+        <div>
+          <h2 id="dayTitle">Push</h2>
+          <p id="daySub">Brust · Schulter · Trizeps</p>
+        </div>
+
+        <button class="reset-btn" id="resetBtn">Reset</button>
+      </section>
+
+      <section class="progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </section>
+
+      <section class="exercise-list" id="exerciseList"></section>
+
+      <section class="done-box" id="doneBox">
+        <h3>Training abgeschlossen 🏆</h3>
+        <p>Stark. Jetzt essen, trinken und regenerieren.</p>
+      </section>
+
+      <section class="info-card">
+        <h3>Gewicht wählen</h3>
+        <p>
+          Nimm ein Gewicht, bei dem die letzten 2 Wiederholungen schwer sind,
+          aber deine Technik sauber bleibt.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
