@@ -1,0 +1,10 @@
+{
+  "name": "Military Training Tracker",
+  "short_name": "Training",
+  "description": "Push Pull Legs Trainingsplan fürs Militär-Gym",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ff",
+  "theme_color": "#7b2fbe",
+  "orientation": "portrait"
+}
