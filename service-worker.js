@@ -1,4 +1,4 @@
-const CACHE_NAME = "training-app-v1";
+const CACHE_NAME = "training-app-v2";
 
 const FILES_TO_CACHE = [
   "./",
@@ -6,6 +6,7 @@ const FILES_TO_CACHE = [
   "./style.css",
   "./script.js",
   "./manifest.json",
+  "./icons/icon.svg",
 ];
 
 self.addEventListener("install", (event) => {
