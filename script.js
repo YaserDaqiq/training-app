@@ -4,88 +4,76 @@ const plan = [
     sub: "Brust · Schulter · Trizeps",
     exercises: [
       {
-        name: "Chest Press",
+        name: "Brust Drücken (Maschine/Hantel)",
         sets: 4,
         reps: "8–10",
         tip: "Schulterblätter zusammen, Brust raus, langsam runter.",
       },
       {
-        name: "Incline Chest Press",
-        sets: 3,
-        reps: "8–12",
-        tip: "Fokus obere Brust. Nicht mit Schwung drücken.",
-      },
-      {
-        name: "Butterfly / Pec Deck",
-        sets: 3,
-        reps: "10–15",
-        tip: "In der Mitte kurz halten und Brust bewusst anspannen.",
-      },
-      {
-        name: "Shoulder Press",
-        sets: 3,
-        reps: "8–12",
-        tip: "Kontrolliert drücken. Ellbogen oben nicht brutal durchstrecken.",
-      },
-      {
-        name: "Lateral Raises",
+        name: "Brust Butterfly (Pec Deck)",
         sets: 4,
-        reps: "12–20",
-        tip: "Seitliche Schulter. Leichtes Gewicht, saubere Kontrolle.",
+        reps: "10–12",
+        tip: "In der Mitte 1 Sekunde halten und Brust bewusst anspannen.",
       },
       {
-        name: "Triceps Pushdown",
-        sets: 3,
-        reps: "10–15",
-        tip: "Ellbogen bleiben nah am Körper.",
+        name: "Schulterdrücken (Maschine/Hantel)",
+        sets: 4,
+        reps: "8–10",
+        tip: "Kontrolliert drücken, Ellbogen oben nicht brutal durchstrecken.",
       },
       {
-        name: "Overhead Triceps Extension",
-        sets: 3,
-        reps: "10–15",
-        tip: "Langsam strecken, nicht ins Hohlkreuz fallen.",
+        name: "Seitheben mit Hanteln (Lateral Raise)",
+        sets: 4,
+        reps: "12–15",
+        tip: "Seitliche Schulter. Nur bis Schulterhöhe, kein Schwung.",
+      },
+      {
+        name: "Trizeps Seil nach unten (Pushdown)",
+        sets: 4,
+        reps: "10–12",
+        tip: "Ellbogen fest am Körper halten, unten kurz anspannen.",
+      },
+      {
+        name: "Trizeps Seil über Kopf (Overhead)",
+        sets: 4,
+        reps: "10–12",
+        tip: "Langsam strecken, kontrolliert zurück, nicht ins Hohlkreuz fallen.",
       },
     ],
   },
   {
     title: "Pull",
-    sub: "Rücken · Bizeps · hintere Schulter",
+    sub: "Rücken · Bizeps",
     exercises: [
       {
-        name: "Lat Pulldown",
+        name: "Lat Pulldown (von oben ziehen)",
         sets: 4,
         reps: "8–10",
-        tip: "Brust raus, Stange Richtung obere Brust ziehen.",
+        tip: "Brust raus, Stange Richtung Schlüsselbein/obere Brust ziehen.",
       },
       {
-        name: "Seated Cable Row",
+        name: "Seated Row (nach vorne ziehen)",
         sets: 4,
         reps: "8–10",
-        tip: "Schulterblätter hinten zusammenziehen.",
+        tip: "Schulterblätter am Ende zusammenziehen, nicht reißen.",
       },
       {
-        name: "Machine Row / einarmiges Rudern",
-        sets: 3,
+        name: "Reverse Fly / hinten Arme strecken",
+        sets: 4,
+        reps: "12–15",
+        tip: "Fokus hintere Schulter und oberer Rücken. Kein Schwung.",
+      },
+      {
+        name: "Hammer Curls (Hanteln)",
+        sets: 4,
         reps: "10–12",
-        tip: "Rücken spüren, nicht nur mit Armen ziehen.",
+        tip: "Gut für dickere Arm-Optik und Unterarm/Brachialis.",
       },
       {
-        name: "Reverse Fly",
-        sets: 3,
-        reps: "12–20",
-        tip: "Hintere Schulter. Kein Schwung.",
-      },
-      {
-        name: "Hammer Curls",
-        sets: 3,
+        name: "Normale Curls (Hanteln)",
+        sets: 4,
         reps: "10–12",
-        tip: "Gut für Brachialis und dickere Arm-Optik.",
-      },
-      {
-        name: "Normale Curls",
-        sets: 3,
-        reps: "10–15",
-        tip: "Langsam ablassen, nicht schwingen.",
+        tip: "Handfläche nach oben drehen, langsam ablassen, nicht schwingen.",
       },
     ],
   },
@@ -94,52 +82,53 @@ const plan = [
     sub: "Beine · Bauch",
     exercises: [
       {
-        name: "Leg Press",
+        name: "Beinpresse (Leg Press)",
         sets: 4,
-        reps: "8–12",
-        tip: "Füsse stabil, Knie nicht nach innen fallen lassen.",
+        reps: "8–10",
+        tip: "Füsse hüftbreit, Knie nicht nach innen fallen lassen.",
       },
       {
-        name: "Leg Curl",
-        sets: 3,
-        reps: "10–15",
-        tip: "Hintere Oberschenkel kontrolliert trainieren.",
-      },
-      {
-        name: "Leg Extension",
-        sets: 3,
-        reps: "10–15",
-        tip: "Oben kurz halten, nicht ruckartig.",
-      },
-      {
-        name: "Wadenheben",
+        name: "Beinstrecker (Leg Extension)",
         sets: 4,
-        reps: "12–20",
-        tip: "Ganz hoch, langsam runter.",
+        reps: "12–15",
+        tip: "Oben 1 Sekunde halten, langsam zurück.",
       },
       {
-        name: "Cable Crunch / Bauchmaschine",
-        sets: 3,
-        reps: "12–20",
-        tip: "Bauch einrollen, nicht nur am Nacken ziehen.",
+        name: "Beinbeuger (Leg Curl)",
+        sets: 4,
+        reps: "12–15",
+        tip: "Hüfte bleibt stabil, Bewegung kontrolliert.",
+      },
+      {
+        name: "Wadenheben (Calf Raises)",
+        sets: 4,
+        reps: "15–20",
+        tip: "Ganz hoch, langsam ganz runter. Volle Bewegung.",
       },
       {
         name: "Plank",
         sets: 3,
-        reps: "30–60 Sek.",
-        tip: "Körper gerade halten, Bauch fest.",
+        reps: "45–60 Sek.",
+        tip: "Körper gerade wie ein Brett, Bauch fest.",
+      },
+      {
+        name: "Crunches / Bauchpresse",
+        sets: 4,
+        reps: "20",
+        tip: "Langsam hoch, nicht am Kopf reißen.",
       },
     ],
   },
 ];
 
 const tips = [
-  "Creatin 3–5g täglich — auch an Ruhetagen.",
-  "Mass Gainer nur als Zusatz, nicht als Ersatz für echtes Essen.",
-  "3 Mahlzeiten pro Tag sind Pflicht, wenn du wachsen willst.",
-  "Wenn alle Sätze sauber klappen: nächstes Mal leicht erhöhen.",
-  "Technik vor Ego-Gewicht.",
-  "Schlaf und Essen bauen Muskeln, Training setzt nur den Reiz.",
+  "💊 Creatin 3–5g täglich — auch an Ruhetagen.",
+  "🥤 Mass Gainer nach dem Training oder zwischen Mahlzeiten.",
+  "🍽️ 3 Mahlzeiten pro Tag sind Pflicht, wenn du wachsen willst.",
+  "📈 Wenn alle Sätze sauber klappen: nächstes Mal leicht erhöhen.",
+  "🎯 Technik vor Ego-Gewicht.",
+  "😴 Schlaf und Essen bauen Muskeln, Training setzt nur den Reiz.",
+  "🔥 Feuer im Bauch, aber Gehirn eingeschaltet.",
 ];
 
 let currentDay = Number(localStorage.getItem("currentDay")) || 0;
@@ -155,7 +144,7 @@ const tipBox = document.getElementById("tipBox");
 const tabs = document.querySelectorAll(".tab");
 
 function save() {
-  localStorage.setItem("currentDay", currentDay);
+  localStorage.setItem("currentDay", String(currentDay));
   localStorage.setItem("checkedExercises", JSON.stringify(checked));
 }
 
@@ -184,7 +173,7 @@ function renderDay() {
         <p class="exercise-name">${exercise.name}</p>
         <div class="tags">
           <span class="tag sets">${exercise.sets} Sätze</span>
-          <span class="tag reps">${exercise.reps}</span>
+          <span class="tag reps">${exercise.reps} Wdh</span>
         </div>
         <p class="exercise-tip">${exercise.tip}</p>
       </div>
@@ -213,6 +202,7 @@ function updateProgress() {
   });
 
   const total = plan[currentDay].exercises.length;
+
   const done = plan[currentDay].exercises.filter((_, index) => {
     return checked[`${currentDay}-${index}`] === true;
   }).length;
