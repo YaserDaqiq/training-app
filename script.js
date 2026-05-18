@@ -133,6 +133,8 @@ const tips = [
 
 let currentDay = Number(localStorage.getItem("currentDay")) || 0;
 let checked = JSON.parse(localStorage.getItem("checkedExercises")) || {};
+let completedDays = JSON.parse(localStorage.getItem("completedDays")) || {};
+const LOCK_TIME = 24 * 60 * 60 * 1000;
 
 const exerciseList = document.getElementById("exerciseList");
 const dayTitle = document.getElementById("dayTitle");
@@ -143,13 +145,52 @@ const resetBtn = document.getElementById("resetBtn");
 const tipBox = document.getElementById("tipBox");
 const tabs = document.querySelectorAll(".tab");
 
+const completionCard = document.getElementById("completionCard");
+const completionText = document.getElementById("completionText");
+const completeBtn = document.getElementById("completeBtn");
+
 function save() {
   localStorage.setItem("currentDay", String(currentDay));
   localStorage.setItem("checkedExercises", JSON.stringify(checked));
+  localStorage.setItem("completedDays", JSON.stringify(completedDays));
+}
+
+function isDayLocked(dayIndex) {
+  const completedAt = completedDays[dayIndex];
+
+  if (!completedAt) {
+    return false;
+  }
+
+  const now = Date.now();
+  const timePassed = now - completedAt;
+
+  return timePassed < LOCK_TIME;
+}
+
+function getRemainingLockText(dayIndex) {
+  const completedAt = completedDays[dayIndex];
+
+  if (!completedAt) {
+    return "";
+  }
+
+  const now = Date.now();
+  const remaining = LOCK_TIME - (now - completedAt);
+
+  if (remaining <= 0) {
+    return "0h 0min";
+  }
+
+  const hours = Math.floor(remaining / (1000 * 60 * 60));
+  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+
+  return `${hours}h ${minutes}min`;
 }
 
 function renderDay() {
   const day = plan[currentDay];
+  const locked = isDayLocked(currentDay);
 
   dayTitle.textContent = day.title;
   daySub.textContent = day.sub;
@@ -180,6 +221,10 @@ function renderDay() {
     `;
 
     card.addEventListener("click", () => {
+      if (locked) {
+        return;
+      }
+
       checked[key] = !checked[key];
       save();
       renderDay();
@@ -211,6 +256,31 @@ function updateProgress() {
   progressFill.style.width = `${percent}%`;
 
   doneBox.classList.toggle("visible", percent === 100);
+  const locked = isDayLocked(currentDay);
+
+  completionCard.classList.toggle("locked", locked);
+
+  if (locked) {
+    const remainingText = getRemainingLockText(currentDay);
+
+    completeBtn.disabled = true;
+    completeBtn.textContent = `Abgeschlossen · ${remainingText} gesperrt 🔒`;
+
+    completionText.textContent =
+      "Training abgeschlossen. Dieser Tag ist für 24h geschützt.";
+  } else if (percent === 100) {
+    completeBtn.disabled = false;
+    completeBtn.textContent = "Training abschliessen 🔥";
+
+    completionText.textContent =
+      "Alle Übungen erledigt. Du kannst den Trainingstag jetzt abschliessen.";
+  } else {
+    completeBtn.disabled = true;
+    completeBtn.textContent = "Training abschliessen 🔥";
+
+    completionText.textContent =
+      "Hake alle Übungen ab, dann kannst du den Trainingstag abschliessen.";
+  }
 }
 
 function rotateTip() {
@@ -227,6 +297,11 @@ tabs.forEach((tab) => {
 });
 
 resetBtn.addEventListener("click", () => {
+  if (isDayLocked(currentDay)) {
+    alert("Dieser Trainingstag ist abgeschlossen und für 24h gesperrt.");
+    return;
+  }
+
   plan[currentDay].exercises.forEach((_, index) => {
     checked[`${currentDay}-${index}`] = false;
   });
@@ -234,7 +309,24 @@ resetBtn.addEventListener("click", () => {
   save();
   renderDay();
 });
+completeBtn.addEventListener("click", () => {
+  completedDays[currentDay] = Date.now();
+
+  plan[currentDay].exercises.forEach((_, index) => {
+    checked[`${currentDay}-${index}`] = true;
+  });
+
+  save();
+  renderDay();
+
+  alert("Training abgeschlossen 🔥 24h gesperrt.");
+});
 
 rotateTip();
 setInterval(rotateTip, 5000);
+
+setInterval(() => {
+  renderDay();
+}, 60000);
+
 renderDay();

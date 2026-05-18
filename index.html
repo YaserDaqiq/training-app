@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#7b2fbe" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
   </head>
+
   <body>
     <header class="app-header">
       <p class="label">MILITÄR TRAINING PLAN</p>
@@ -50,6 +52,16 @@
         <div class="progress-fill" id="progressFill"></div>
       </section>
 
+      <section class="completion-card" id="completionCard">
+        <p class="completion-text" id="completionText">
+          Hake alle Übungen ab, dann kannst du den Trainingstag abschliessen.
+        </p>
+
+        <button class="complete-btn" id="completeBtn" disabled>
+          Training abschliessen 🔥
+        </button>
+      </section>
+
       <section class="exercise-list" id="exerciseList"></section>
 
       <section class="done-box" id="doneBox">
@@ -67,6 +79,7 @@
     </main>
 
     <script src="script.js"></script>
+
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
